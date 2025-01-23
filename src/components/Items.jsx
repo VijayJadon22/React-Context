@@ -1,13 +1,15 @@
 import React from "react";
 import ItemCard from "./ItemCard";
+import { useCartContext } from "../context/CartContext";
 
 const Items = () => {
+  const getContext = useCartContext();
+  const { data } = getContext;
   return (
     <div className="items-container">
-      <ItemCard name={"Apple"} price={200} />
-      <ItemCard name={"Mango"} price={100} />
-      <ItemCard name={"Orange"} price={50} />
-      
+      {data.map((item, index) => (
+        <ItemCard name={item.name} price={item.price} />
+      ))}
     </div>
   );
 };
