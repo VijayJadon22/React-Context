@@ -2,22 +2,18 @@ import React from "react";
 import styles from "../styles.css";
 import { useCartContext } from "../context/CartContext";
 
-const ItemCard = ({ name, price }) => {
-  const getContext = useCartContext();
-  console.log(getContext);
+const ItemCard = ({ name, price,item }) => {
+  const { handleAddItem, handleRemoveItem } = useCartContext();
 
   return (
     <div className="itemCard">
       <h2>{name}</h2>
       <h4>Price: {price} &#x20B9;</h4>
       <div>
-        <button onClick={() => getContext.handleAddItem(price)} className="btn">
+        <button onClick={() => handleAddItem(item)} className="btn">
           Add
         </button>
-        <button
-          onClick={() => getContext.handleRemoveItem(price)}
-          className="btn"
-        >
+        <button onClick={() => handleRemoveItem(item)} className="btn">
           Remove
         </button>
       </div>

@@ -3,12 +3,11 @@ import ItemCard from "./ItemCard";
 import { useCartContext } from "../context/CartContext";
 
 const Items = () => {
-  const getContext = useCartContext();
-  const { data } = getContext;
+  const { data } = useCartContext();
   return (
     <div className="items-container">
       {data.map((item, index) => (
-        <ItemCard name={item.name} price={item.price} />
+        <ItemCard key={item.id} name={item.name} price={item.price} item={item} />
       ))}
     </div>
   );
