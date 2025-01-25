@@ -32,6 +32,7 @@ export const CartContextProvider = (props) => {
     console.log(itemsInCart);
     setCartItems(itemsInCart);
   };
+
   const handleRemoveItem = (product) => {
     const itemsInCart = [...cartItems];
     const itemIndex = itemsInCart.findIndex((prod) => prod.id === product.id);
@@ -72,16 +73,14 @@ export const CartContextProvider = (props) => {
         handleRemoveItem,
         clearCart,
         toggleCart,
+        cartItems,
+        setIsCartVisible,
+        clearCart,
       }}
     >
-      {isCartVisible && (
-        <Cart
-          items={cartItems}
-          setIsCartVisible={setIsCartVisible}
-          clearCart={clearCart}
-        />
-      )}
-      {!isCartVisible && props.children}
+      {isCartVisible && <Cart />}
+      {/* {!isCartVisible && props.children} */}
+      {props.children}
     </CartContext.Provider>
   );
 };
