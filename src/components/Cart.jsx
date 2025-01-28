@@ -2,7 +2,7 @@ import React from "react";
 import { useCartContext } from "../context/CartContext";
 
 const Cart = () => {
-  const { cartItems, setIsCartVisible, clearCart } = useCartContext();
+  const { cartItems, setIsCartVisible, clearCart, total } = useCartContext();
   return (
     <div className="cartContainer">
       <div className="cartNav">
@@ -37,7 +37,9 @@ const Cart = () => {
 
         {cartItems.length !== 0 ? (
           <div className="totalDiv">
-            <h3 style={{ textAlign: "center" }}>Total Price: 1100&#x20B9;</h3>
+            <h3 style={{ textAlign: "center" }}>
+              Total Price: {total}&#x20B9;
+            </h3>
           </div>
         ) : null}
       </div>

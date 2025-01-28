@@ -61,7 +61,7 @@ export const CartContextProvider = (props) => {
   };
 
   const toggleCart = () => {
-    setIsCartVisible(!isCartVisible);
+    setIsCartVisible(true);
   };
   return (
     <CartContext.Provider
